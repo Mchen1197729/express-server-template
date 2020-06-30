@@ -4,6 +4,7 @@ const router = express.Router()
 
 
 router.get('/', (req, res) => {
+  console.log('hello world')
   res.send({code: 0, msg: 'request success'})
 })
 

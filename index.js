@@ -13,6 +13,13 @@ app.use(bodyParser.json())
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({extended: false}))
 
+app.get('/', (req, res) => {
+  res.send({
+    code: 0,
+    msg: 'request success'
+  })
+})
+
 app.use('/user', userRouter)
 
 
