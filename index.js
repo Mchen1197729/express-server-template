@@ -2,6 +2,8 @@ const express = require('express')
 const cors = require('cors')
 const bodyParser = require('body-parser')
 
+const connection = require('./db')
+
 //分配路由
 const userRouter = require('./router/user')
 
@@ -22,7 +24,15 @@ app.get('/', (req, res) => {
 
 app.use('/user', userRouter)
 
-
-app.listen(5400, () => {
-  console.log('app is running at port 5400')
+connection.connect(error => {
+  if (error) {
+    console.log('database connect error')
+  } else {
+    console.log('database connect success')
+    app.listen(5400, () => {
+      console.log('app is running at port 5400')
+    })
+  }
 })
+
+
