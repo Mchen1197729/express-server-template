@@ -3,7 +3,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 
 //自定义中间件
-const logger = require('./middles/logger')
+const logger = require('./middlewares/logger')
 
 //分配路由
 const userRouter = require('./router/user')
