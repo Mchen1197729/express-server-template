@@ -10,7 +10,7 @@ const logger = () => {
     //在此处得到所有请求的信息
     const {method, url, body} = req
     const req_time = Date.now()
-    console.log(method, url, body)
+    // console.log(method, url, body)
     next()
     //如何在此处得到关于响应的信息呢?
     //目前的处理方法:在每一个请求处理的方法中 将响应的数据设置为res.locals.data属性 这样就可以在此处获取到响应的数据了
@@ -18,10 +18,8 @@ const logger = () => {
     const res_time = Date.now()
     //在这里将此次请求和响应的数据记录下来
     LoggerModel.create({
-      req: {url, method, payload: body || {}, req_time},
-      res: {
-        status: 200, data: res.locals.data, res_time
-      }
+      url, method, payload: body, req_time,
+      status: 200, data: res.locals.data, res_time
     }, (error, result) => {
       if (error) {
         console.log(error)
