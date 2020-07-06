@@ -11,4 +11,9 @@ router.get('/', (req, res) => {
   res.locals.data = {code: 0, msg: 'request success'}
 })
 
+router.post('/add', (req, res) => {
+  res.send({code: 0, msg: 'request success'})
+  res.locals.data = {code: 0, msg: 'request success'}
+})
+
 module.exports = router
